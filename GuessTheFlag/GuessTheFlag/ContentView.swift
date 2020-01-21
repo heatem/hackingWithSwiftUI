@@ -28,6 +28,7 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .fontWeight(.black)
+                        .frame(minWidth: 100, maxWidth: .infinity)
                 }
                 
                 ForEach(0 ..< 3) { number in
