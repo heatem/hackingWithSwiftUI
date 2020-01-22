@@ -8,6 +8,20 @@
 
 import SwiftUI
 
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View {
+    func titleStyle() -> some View {
+        self.modifier(Title())
+    }
+}
+
 struct ContentView: View {
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -15,21 +29,22 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     @State private var countryPicked = ""
-    
+
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [.black, .blue, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 30) {
                 VStack {
                     Text("Tap the flag of")
-                        .foregroundColor(.white)
                     Text("\(countries[correctAnswer])")
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .fontWeight(.black)
                         .frame(minWidth: 100, maxWidth: .infinity)
                 }
+                
+                Spacer()
                 
                 ForEach(0 ..< 3) { number in
                     Button(action: {
@@ -42,11 +57,11 @@ struct ContentView: View {
                             .shadow(color: .black, radius: 2)
                     }
                 }
-                
+                Spacer()
                 Text("Current score: \(score)")
-                    .foregroundColor(.white)
                 Spacer()
             }
+        .titleStyle()
             .alert(isPresented: $showingScore) {
                 Alert(title: Text(scoreTitle), message: Text("You picked the flag of \(countryPicked)"), dismissButton: .default(Text("Continue")) {
                     self.askQuestion()
