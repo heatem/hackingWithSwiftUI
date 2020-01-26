@@ -13,7 +13,10 @@ struct ContentView: View {
     @State private var move = Int.random(in: 0 ..< 3)
     @State private var shouldWin = Bool.random()
     @State private var score = 0
-    @State private var turns = 0
+    @State private var turns = 1
+    @State private var showingResult = false
+    @State private var resultTitle = ""
+    @State private var resultMessage = ""
 
     var body: some View {
         VStack(spacing: 10) {
@@ -39,23 +42,51 @@ struct ContentView: View {
                 }
             }
         }
-        // TODO: add alert to show whether selected the correct button
-        // TODO: action should change move and shouldWin
+    .alert(isPresented: $showingResult) {
+        Alert(title: Text(resultTitle), message: Text("You selected the \(resultMessage) move."), dismissButton: .default(Text("Continue")) {
+            self.showNextRound()
+            })
+        }
     }
     
     func moveTapped(_ number: Int) {
-        // TODO: Update this to account for expected move, not just number (used for testing)
-        if number == move {
-            score += 1
+        if shouldWin {
+            if move == 0 && number != 1 || move == 1 && number != 2 || move == 2 && number != 0 {
+                resultTitle = "So sad."
+                resultMessage = move == number ? "tying" : "losing"
+                score -= 1
+            } else {
+                resultTitle = "Good job!"
+                resultMessage = "winning"
+                score += 1
+            }
         } else {
-            score -= 1
+            if move == 2 && number != 1 || move == 1 && number != 0 || move == 0 && number != 2 {
+                resultTitle = "So sad."
+                resultMessage = move == number ? "tying" : "winning"
+                score -= 1
+            } else {
+                resultTitle = "Good job!"
+                resultMessage = "losing"
+                score += 1
+            }
         }
         
         if turns < 10 {
             turns += 1
         } else {
-            // TODO: Alert user to their final score and let them reset/play again
+            resultTitle = "Final Score: \(score)"
+            score = 0
+            turns = 1
+            showNextRound()
         }
+        
+        showingResult = true
+    }
+    
+    func showNextRound() {
+        move = Int.random(in: 0 ..< 3)
+        shouldWin = Bool.random()
     }
 }
 
