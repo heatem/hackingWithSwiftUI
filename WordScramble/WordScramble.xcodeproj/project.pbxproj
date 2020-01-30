@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE23DE1823E294E80007F6AF /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = AE23DE1723E294E80007F6AF /* start.txt */; };
 		AE4D228823E136670032DE04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D228723E136670032DE04 /* AppDelegate.swift */; };
 		AE4D228A23E136670032DE04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D228923E136670032DE04 /* SceneDelegate.swift */; };
 		AE4D228C23E136670032DE04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D228B23E136670032DE04 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE23DE1723E294E80007F6AF /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 		AE4D228423E136670032DE04 /* WordScramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordScramble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4D228723E136670032DE04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE4D228923E136670032DE04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				AE4D228923E136670032DE04 /* SceneDelegate.swift */,
 				AE4D228B23E136670032DE04 /* ContentView.swift */,
 				AE4D228D23E136680032DE04 /* Assets.xcassets */,
+				AE23DE1723E294E80007F6AF /* start.txt */,
 				AE4D229223E136680032DE04 /* LaunchScreen.storyboard */,
 				AE4D229523E136680032DE04 /* Info.plist */,
 				AE4D228F23E136680032DE04 /* Preview Content */,
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE4D229423E136680032DE04 /* LaunchScreen.storyboard in Resources */,
+				AE23DE1823E294E80007F6AF /* start.txt in Resources */,
 				AE4D229123E136680032DE04 /* Preview Assets.xcassets in Resources */,
 				AE4D228E23E136680032DE04 /* Assets.xcassets in Resources */,
 			);
