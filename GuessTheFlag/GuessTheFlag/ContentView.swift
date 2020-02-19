@@ -44,6 +44,7 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     @State private var countryPicked = ""
+    @State private var animationAmount: CGFloat = 1
 
     var body: some View {
         ZStack {
@@ -66,10 +67,11 @@ struct ContentView: View {
                         self.flagTapped(number)
                     }) {
                         Image(self.countries[number])
-                            .renderingMode(.original)
-                            .flagImage()
+                        .renderingMode(.original)
+                        .flagImage()
                     }
                 }
+                
                 Spacer()
                 Text("Current score: \(score)")
                 Spacer()
