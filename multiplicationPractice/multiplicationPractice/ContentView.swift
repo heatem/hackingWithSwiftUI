@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var isActive = false
     @State private var questionAmount = 2
     @State private var questionAmounts = [5, 10, 15, 20, 24]
+    @State private var numberToPractice = 6 // start stepper at 6
     
     var body: some View {
         // TODO: Add alert at end of game
@@ -28,7 +29,8 @@ struct ContentView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                // select which tables they want to practice from 1 to 12
+                // select which tables they want to practice from 1 to 12 - use stepper
+                
                 // how many questions do they want to answer (segmented picker))
                 // button to start game (improvement: alert confirming selection or cancel to change selections)
             }
