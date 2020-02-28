@@ -14,6 +14,7 @@
 		AE9E094524077A80009FF4B1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9E094424077A80009FF4B1 /* Preview Assets.xcassets */; };
 		AE9E094824077A80009FF4B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9E094624077A80009FF4B1 /* LaunchScreen.storyboard */; };
 		AE9E095024088931009FF4B1 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9E094F24088931009FF4B1 /* ExpenseItem.swift */; };
+		AE9E09522408C9F8009FF4B1 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9E09512408C9F8009FF4B1 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AE9E094724077A80009FF4B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE9E094924077A80009FF4B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9E094F24088931009FF4B1 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
+		AE9E09512408C9F8009FF4B1 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				AE9E093B24077A7F009FF4B1 /* AppDelegate.swift */,
 				AE9E093D24077A7F009FF4B1 /* SceneDelegate.swift */,
 				AE9E093F24077A7F009FF4B1 /* ContentView.swift */,
+				AE9E09512408C9F8009FF4B1 /* AddView.swift */,
 				AE9E094124077A80009FF4B1 /* Assets.xcassets */,
 				AE9E094624077A80009FF4B1 /* LaunchScreen.storyboard */,
 				AE9E094924077A80009FF4B1 /* Info.plist */,
@@ -151,6 +154,7 @@
 			files = (
 				AE9E093C24077A7F009FF4B1 /* AppDelegate.swift in Sources */,
 				AE9E093E24077A7F009FF4B1 /* SceneDelegate.swift in Sources */,
+				AE9E09522408C9F8009FF4B1 /* AddView.swift in Sources */,
 				AE9E094024077A7F009FF4B1 /* ContentView.swift in Sources */,
 				AE9E095024088931009FF4B1 /* ExpenseItem.swift in Sources */,
 			);
