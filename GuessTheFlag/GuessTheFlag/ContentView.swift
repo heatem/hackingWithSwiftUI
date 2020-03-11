@@ -76,6 +76,7 @@ struct ContentView: View {
                 Text("Current score: \(score)")
                 Spacer()
             }
+
         .titleStyle()
             .alert(isPresented: $showingScore) {
                 Alert(title: Text(scoreTitle), message: Text("You picked the flag of \(countryPicked)"), dismissButton: .default(Text("Continue")) {
