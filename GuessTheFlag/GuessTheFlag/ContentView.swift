@@ -44,7 +44,8 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     @State private var countryPicked = ""
-    @State private var animationAmount: CGFloat = 1
+    @State private var animationAmount: CGFloat = 0.0
+    var opacity: Double = 1
 
     var body: some View {
         ZStack {
@@ -63,14 +64,29 @@ struct ContentView: View {
                 Spacer()
                 
                 ForEach(0 ..< 3) { number in
-                    Button(action: {
-                        self.flagTapped(number)
-                    }) {
-                        Image(self.countries[number])
-                        .renderingMode(.original)
-                        .flagImage()
+                    if number == self.correctAnswer {
+                        Button(action: {
+                            self.flagTapped(number)
+                            withAnimation {
+                                self.animationAmount += 360
+                            }
+                        }) {
+                            Image(self.countries[number])
+                                .renderingMode(.original)
+                                .flagImage()
+                        }
+                        .rotation3DEffect(.degrees(Double(self.animationAmount)), axis: (x: 0, y: 1, z: 0))
+                    } else {
+                        Button(action: {
+                            self.flagTapped(number)
+                        }) {
+                            Image(self.countries[number])
+                                .renderingMode(.original)
+                                .flagImage()
+                        }
                     }
                 }
+                    
                 
                 Spacer()
                 Text("Current score: \(score)")
@@ -97,6 +113,7 @@ struct ContentView: View {
         
         countryPicked = countries[number]
         showingScore = true
+        animationAmount = 0.0
     }
     
     func askQuestion() {

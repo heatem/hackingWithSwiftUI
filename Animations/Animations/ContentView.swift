@@ -12,15 +12,17 @@ struct ContentView: View {
     @State private var animationAmount: CGFloat = 1
     var body: some View {
         Button("Tap Me") {
-            withAnimation {
-                self.animationAmount += 360
-            }
+//            withAnimation {
+                self.animationAmount += 1
+//            }
         }
         .padding(50)
         .background(Color.red)
         .foregroundColor(.white)
         .clipShape(Circle())
-        .rotation3DEffect(.degrees(Double(animationAmount)), axis: (x: 0, y: 1, z: 0))
+        .scaleEffect(animationAmount)
+        .animation(.default)
+//        .rotation3DEffect(.degrees(Double(animationAmount)), axis: (x: 0, y: 1, z: 0))
     }
 }
 
