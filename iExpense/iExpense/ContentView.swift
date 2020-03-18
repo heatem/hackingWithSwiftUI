@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var expenses = Expenses()
     @State private var showingAddExpense = false
+    var backgroundColor = Color.yellow
     
     var body: some View {
         NavigationView {
@@ -26,11 +27,12 @@ struct ContentView: View {
                         Spacer()
                         Text("$\(item.amount)")
                     }
+                    .listRowBackground(self.setColor(for: item.amount))
                 }
             .onDelete(perform: removeItems)
             }
             .navigationBarTitle("iExpense")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading: EditButton(), trailing:
                     Button(action: {
                         self.showingAddExpense = true
                         
@@ -46,6 +48,19 @@ struct ContentView: View {
     
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+    
+    func setColor(for amount: Int) -> Color {
+        switch amount {
+        case Int.min..<0:
+            return Color.green
+        case 0..<10:
+            return Color.yellow
+        case 10..<100:
+            return Color.orange
+        default:
+            return Color.red
+        }
     }
 }
 
